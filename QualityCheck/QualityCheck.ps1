@@ -3069,7 +3069,7 @@ function CollectFileSystems {
 
                 $_nfsaddress = ($_filesystem_row.Source.Split(":"))[0]
 
-                if ([bool]$_nfsaddress -as [ipaddress]) {
+                if ([bool]($_nfsaddress -as [ipaddress])) {
                     # NFS hostname is an ipaddress
                     $_nfsipaddress = $_nfsaddress
                     WriteRunLog -message "Found NFS share $($_filesystem_row.Source) with IP address $_nfsipaddress"
